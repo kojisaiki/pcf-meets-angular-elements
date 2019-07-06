@@ -1,0 +1,7 @@
+{
+  "port": 8080,
+  "root": "/preview",
+  "open": false,
+  "file": "index.html",
+  "logLevel": 2
+}
