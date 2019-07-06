@@ -25,7 +25,13 @@ export class NgNumberInput
 
     let customElement: HTMLElement = document.createElement('app-number-input');
     customElement.setAttribute('title', 'Batman');
-    console.log(customElement);
+    customElement.setAttribute('rname', 'Bruce Wayne');
+    customElement.setAttribute('occupation', "World's Greatest Detective");
+    customElement.setAttribute('location', 'Gotham');
+    customElement.setAttribute('first', 'Detective Comics #27');
+    customElement.addEventListener('display', (event: any) => {
+      alert(event.detail);
+    });
 
     container.appendChild(customElement);
   }
