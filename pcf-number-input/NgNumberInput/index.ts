@@ -21,6 +21,8 @@ export class NgNumberInput
     state: ComponentFramework.Dictionary,
     container: HTMLDivElement
   ) {
+    require('./libs/angularapp');
+
     let customElement: HTMLElement = document.createElement('app-number-input');
     customElement.setAttribute('title', 'Batman');
     console.log(customElement);
