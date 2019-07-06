@@ -8,6 +8,6 @@ import { Component } from '@angular/core';
 export class AppComponent {
   showMessage() {
     const hello = document.getElementById('hello');
-    hello.innerHTML = '<app-hello-world></app-hello-world>';
+    hello.innerHTML = '<app-number-input></app-number-input>';
   }
 }
