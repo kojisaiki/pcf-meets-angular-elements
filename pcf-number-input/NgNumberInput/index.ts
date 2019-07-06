@@ -2,7 +2,10 @@ import { IInputs, IOutputs } from './generated/ManifestTypes';
 
 export class NgNumberInput
   implements ComponentFramework.StandardControl<IInputs, IOutputs> {
-  private value: string;
+  /**
+   * inner value
+   */
+  private value: number;
 
   /**
    * Empty constructor.
