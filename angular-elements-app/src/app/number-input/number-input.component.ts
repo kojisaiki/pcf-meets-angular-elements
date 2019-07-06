@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   // selector: 'app-number-input',
@@ -12,7 +12,16 @@ export class NumberInputComponent implements OnInit {
   @Input() location;
   @Input() first;
 
+  @Output() display = new EventEmitter();
+
   constructor() {}
 
   ngOnInit() {}
+
+  showInfo() {
+    this.display.emit(`Name: ${this.rname}
+    Occupation: ${this.occupation}
+    Based In: ${this.location}
+    First Appearance: ${this.first}`);
+  }
 }
