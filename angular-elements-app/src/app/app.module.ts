@@ -2,14 +2,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, Injector } from '@angular/core';
 import { createCustomElement } from '@angular/elements';
 
-import { AppComponent } from './app.component';
 import { NumberInputComponent } from './number-input/number-input.component';
 
 @NgModule({
-  declarations: [AppComponent, NumberInputComponent],
+  declarations: [NumberInputComponent],
   imports: [BrowserModule],
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [],
   entryComponents: [NumberInputComponent],
 })
 export class AppModule {
@@ -20,4 +19,5 @@ export class AppModule {
     });
     customElements.define('app-number-input', custom);
   }
+  ngDoBootstrap() {}
 }
