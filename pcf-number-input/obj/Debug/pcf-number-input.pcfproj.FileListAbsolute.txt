@@ -1,0 +1,2 @@
+C:\Users\saiko\source\powerapps\pcf-meets-angular-elements\pcf-number-input\obj\Debug\pcf-number-input.pcfprojAssemblyReference.cache
+C:\Users\saiko\source\powerapps\pcf-meets-angular-elements\pcf-number-input\obj\Debug\pcf-number-input.pcfproj.CoreCompileInputs.cache

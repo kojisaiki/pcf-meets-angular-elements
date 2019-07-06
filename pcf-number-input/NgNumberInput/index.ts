@@ -2,6 +2,8 @@ import { IInputs, IOutputs } from './generated/ManifestTypes';
 
 export class NgNumberInput
   implements ComponentFramework.StandardControl<IInputs, IOutputs> {
+  private value: string;
+
   /**
    * Empty constructor.
    */
@@ -42,6 +44,7 @@ export class NgNumberInput
    */
   public updateView(context: ComponentFramework.Context<IInputs>): void {
     // Add code to update control view
+    this.value = context.parameters.myValue.raw;
   }
 
   /**
@@ -49,7 +52,9 @@ export class NgNumberInput
    * @returns an object based on nomenclature defined in manifest, expecting object[s] for property marked as “bound” or “output”
    */
   public getOutputs(): IOutputs {
-    return {};
+    return {
+      myValue: this.value,
+    };
   }
 
   /**
