@@ -31,12 +31,12 @@ export class NgNumberInput
     state: ComponentFramework.Dictionary,
     container: HTMLDivElement
   ) {
-    require('./libs/angularapp');
-
     this._notifyOutputChanged = notifyOutputChanged;
     this._valueChangedActionListener = this.valueChangedActionListener.bind(
       this
     );
+
+    require('./libs/angularapp');
 
     this.customElement = document.createElement('app-number-input');
     this.customElement.addEventListener(

@@ -25,6 +25,14 @@ Today it does not work.
     at R.then (webpack://pcf_tools_652ac3f36e1e4bca82eb3c1dc44e6fad/./NgNumberInput/libs/angularapp.js?:779:60)
     at g (webpack://pcf_tools_652ac3f36e1e4bca82eb3c1dc44e6fad/./NgNumberInput/libs/angularapp.js?:451:32)
 
+# Develop
+
+## Angular
+
+- Change codes
+- Run "./custombuild.sh" in bash (e.g. Git bash)
+- Run "npm start" (live-server)
+
 # References
 
 https://blog.bitsrc.io/using-angular-elements-why-and-how-part-1-35f7fd4f0457
