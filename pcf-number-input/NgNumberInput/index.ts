@@ -6,6 +6,11 @@ export class NgNumberInput
    * inner value
    */
   private value: number;
+  private customElement: HTMLElement;
+  // PCF framework delegate which will be assigned to this object which would be called whenever any update happens.
+  private _notifyOutputChanged: () => void;
+  // Event Handler 'refreshData' reference
+  private _valueChangedActionListener: EventListenerOrEventListenerObject;
 
   /**
    * Empty constructor.
@@ -28,17 +33,23 @@ export class NgNumberInput
   ) {
     require('./libs/angularapp');
 
-    let customElement: HTMLElement = document.createElement('app-number-input');
-    customElement.setAttribute('title', 'Batman');
-    customElement.setAttribute('rname', 'Bruce Wayne');
-    customElement.setAttribute('occupation', "World's Greatest Detective");
-    customElement.setAttribute('location', 'Gotham');
-    customElement.setAttribute('first', 'Detective Comics #27');
-    customElement.addEventListener('display', (event: any) => {
-      alert(event.detail);
-    });
+    this._notifyOutputChanged = notifyOutputChanged;
+    this._valueChangedActionListener = this.valueChangedActionListener.bind(
+      this
+    );
 
-    container.appendChild(customElement);
+    this.customElement = document.createElement('app-number-input');
+    this.customElement.addEventListener(
+      'valueChanged',
+      this._valueChangedActionListener
+    );
+
+    container.appendChild(this.customElement);
+  }
+
+  private valueChangedActionListener(event: any) {
+    console.log('changed:' + event.detail);
+    this.value = event.detail;
   }
 
   /**
@@ -48,6 +59,7 @@ export class NgNumberInput
   public updateView(context: ComponentFramework.Context<IInputs>): void {
     // Add code to update control view
     this.value = context.parameters.myValue.raw;
+    this.customElement.setAttribute('value', String(this.value));
   }
 
   /**
@@ -66,5 +78,9 @@ export class NgNumberInput
    */
   public destroy(): void {
     // Add code to cleanup control if necessary
+    this.customElement.removeEventListener(
+      'valueChanged',
+      this._valueChangedActionListener
+    );
   }
 }
