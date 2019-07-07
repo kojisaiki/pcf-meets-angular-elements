@@ -6,22 +6,64 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./number-input.component.scss'],
 })
 export class NumberInputComponent implements OnInit {
-  @Input() title;
-  @Input() rname;
-  @Input() occupation;
-  @Input() location;
-  @Input() first;
+  @Input()
+  set value(v: number) {
+    this.modelValue = String(v);
+  }
 
-  @Output() display = new EventEmitter();
+  @Output() valueChanged = new EventEmitter<number>();
+
+  private innerValue: string;
+  set modelValue(v: string) {
+    this.innerValue = v;
+    try {
+      const v2 = Number(this.innerValue);
+      if (Number.isNaN(v2)) {
+        this.innerValue = '0';
+      }
+    } catch (e) {
+      this.innerValue = '0';
+    }
+
+    this.valueChanged.emit(Number(this.innerValue));
+  }
+  get modelValue(): string {
+    return this.innerValue;
+  }
 
   constructor() {}
 
   ngOnInit() {}
 
-  showInfo() {
-    this.display.emit(`Name: ${this.rname}
-    Occupation: ${this.occupation}
-    Based In: ${this.location}
-    First Appearance: ${this.first}`);
+  decrement() {
+    console.log('decrement');
+    try {
+      const v = Number(this.modelValue);
+      console.log('before:' + v);
+      if (!Number.isNaN(v)) {
+        this.modelValue = String(v - 1);
+        console.log('after:' + this.modelValue);
+      } else {
+        this.modelValue = '0';
+      }
+    } catch (e) {
+      this.modelValue = '0';
+    }
+  }
+
+  increment() {
+    console.log('increment');
+    try {
+      const v = Number(this.modelValue);
+      console.log('before:' + v);
+      if (!Number.isNaN(v)) {
+        this.modelValue = String(v + 1);
+        console.log('after:' + this.modelValue);
+      } else {
+        this.modelValue = '0';
+      }
+    } catch (e) {
+      this.modelValue = '0';
+    }
   }
 }

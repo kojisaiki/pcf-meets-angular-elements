@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 import { NgModule, Injector } from '@angular/core';
 import { createCustomElement } from '@angular/elements';
 
@@ -6,7 +7,7 @@ import { NumberInputComponent } from './number-input/number-input.component';
 
 @NgModule({
   declarations: [NumberInputComponent],
-  imports: [BrowserModule],
+  imports: [BrowserModule, FormsModule],
   providers: [],
   bootstrap: [],
   entryComponents: [NumberInputComponent],

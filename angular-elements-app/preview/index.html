@@ -1,17 +1,11 @@
 <html>
   <body>
-    <app-number-input
-      title="Batman"
-      rname="Bruce Wayne"
-      occupation="World's Greatest Detective"
-      location="Gotham"
-      first="Detective Comics #27"
-    ></app-number-input>
+    <app-number-input value="123"></app-number-input>
     <script src="./angularapp.js"></script>
     <script>
       const component = document.querySelector('app-number-input');
-      component.addEventListener('display', event => {
-        alert(event.detail);
+      component.addEventListener('valueChanged', event => {
+        console.log('value:' + event.detail);
       });
     </script>
   </body>
